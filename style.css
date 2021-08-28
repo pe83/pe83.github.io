@@ -15,11 +15,12 @@ font-weight:bold;
 
 button{
           background:saddlebrown;
-          width:7%;
-          height:14%;
+          width:12%;
+          height:10%;
 		  border-radius: 20%;
 		  margin-bottom:5px;
 		  margin-right:5px;
+		  font-size:20px;
 } 
 
 button:hover {
@@ -73,3 +74,4 @@ button img{
       background-position: 200% center;
     }
   }
+© 2021 GitHub, Inc.
