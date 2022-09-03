@@ -3,6 +3,7 @@ html, body {
     height: 100vh;
     font-weight: 100;
     background: radial-gradient(#708090,#000000);
+    background-color: gray;
     -webkit-overflow-Y: hidden;
     -moz-overflow-Y: hidden;
     -o-overflow-Y: hidden;
