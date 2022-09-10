@@ -4,19 +4,19 @@
 	}
 
 body,html{
-			height:100vh;
-			width:100vw;
-			overflow:hidden;
-			background-color: black;
-			}
+	height:100vh;
+	width:100vw;
+	overflow:hidden;
+	background-color: black;
+}
 body{
-			background-color:var(--color-cod-gray);
-			font-family:Arial,Helvetica,sans-serif;
-			font-weight:800;height:100%;
-			margin:0;
-			overflow:hidden;
-			padding:0
-			}
+	background-color:var(--color-cod-gray);
+	font-family:Arial,Helvetica,sans-serif;
+	font-weight:800;height:100%;
+	margin:0;
+	overflow:hidden;
+	padding:0
+}
 
 .tiles{display:flex;flex-direction:column;justify-content:center;left:50%;position:fixed;top:50%;-webkit-transform:translateX(-50%) translateY(-50%) rotate(322.5deg)}
 .tiles__line{-webkit-animation:runner 20s linear infinite;display:flex;transform:translateX(25%)}
@@ -26,12 +26,12 @@ body{
 .tiles2 .tiles__line{-webkit-animation:runner 23s linear infinite;display:flex;transform:translateX(25%)}
 .tiles2 .tiles__line:nth-child(2){-webkit-animation-duration:8s}
 .tiles2 .tiles__line:nth-child(3){-webkit-animation-duration:12s}
-.tiles2 .tiles__line-img{--tile-margin:5vw;height:20vh;width:20vh;opacity:.60}
+.tiles2 .tiles__line-img{--tile-margin:2vw;height:20vh;width:20vh;opacity:.60}
 .tiles2 .tiles__line-img--large{height:6vh;width:100vh;opacity:.40}@keyframes runner{to{-webkit-transform:translateX(-25%)}}
-.tiles__line-img{--tile-margin:3vw;background-position:50% 50%;background-size:cover;border-radius:10%;flex:none;height:30vh;margin:var(--tile-margin);width:30vh;background-color:var(--color-primary);opacity:.50}
+.tiles__line-img{--tile-margin:2vw;background-position:50% 50%;background-size:cover;border-radius:10%;flex:none;height:30vh;margin:var(--tile-margin);width:30vh;background-color:var(--color-primary);opacity:.50}
 .tiles__line-img--large{border-radius:50vh;width:30vh;opacity:.30}
-										
-	button{
+
+button{
   position: center;
   border: 2px solid white;
   background: #CD853F;
@@ -72,7 +72,6 @@ font-weight:bold;
 
 .linear-wipe {
     text-align: center;
-    
     background: linear-gradient(to right, rgb(192,192,192) 20%, rgb(0,0,0) 40%, rgb(255,255,255) 60%, #fff 80%);
     background-size: 200% auto;
     color: #000;
@@ -82,10 +81,7 @@ font-weight:bold;
     -webkit-animation: BackgrounGradient 10s ease infinite;
     -moz-animation: BackgrounGradient 10s ease infinite;
     animation: BackgrounGradient 10s ease infinite;
-
 }
-
-
 
 @-webkit-keyframes BackgrounGradient {
     0%{background-position:0% 50%}
