@@ -34,17 +34,33 @@ body{
 .tiles__line-img{--tile-margin:3vw;background-position:50% 50%;background-size:cover;border-radius:3vh;flex:none;height:30vh;margin:var(--tile-margin);width:30vh;background-color:var(--color-primary);opacity:.3}
 .tiles__line-img--large{border-radius:3vh;width:100vh;opacity:.3}
 
+  .br2 {
+        display: block;
+        margin-bottom: 1mm;
+  }
+
+.hr2 {
+  border: 3px solid #FFFACD;
+  border-radius: 3px;
+}
+
+.ali1 {
+  text-align: center;
+  background: #CD853F;
+  margin: auto;
+}
+
 button{
   position: center;
-  border: 2px solid white;
+  border: 2px solid #FFE4B5;
   background: #CD853F;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: #FFE4B5;
   width: 250px;
   height: 50px;
-  font-size: 2em;
-  border-radius: 5px;
-  opacity: .5;
+  font-size: 25px;
+  border-radius: 30px;
+  opacity: .8;
   top: 10vh;
   bottom: 0px;
   left: 0px;
@@ -55,7 +71,7 @@ button{
 }
 
 button:hover{
-  border: 2px solid #104F55;
+  border: 2px dotted #104F55;
   background-color: rgba(365,365,365,0.5);
   cursor: pointer;
   color: #104F55;
@@ -66,16 +82,14 @@ button:hover{
 
 footer {
 position:fixed;left:0px;right:0px;bottom:50px;
-font-size:25px;font-weight:bold;z-index:1;color:white;text-align:left;
+font-size:25px;font-weight:bold;z-index:1;color:#FFE4B5;text-align:left;
 text-align:center;
 font-weight:bold;
 }
 
-
-
 .linear-wipe {
     text-align: center;
-    background: linear-gradient(to right, rgb(192,192,192) 20%, rgb(0,0,0) 40%, rgb(255,255,255) 60%, #fff 80%);
+    background: linear-gradient(to right, rgb(218,165,32) 20%, rgb(255,228,181) 40%, rgb(210,105,30) 60%, #fff 80%);
     background-size: 200% auto;
     color: #000;
     background-clip: text;
