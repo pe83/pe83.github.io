@@ -81,8 +81,8 @@ button:hover{
 }
 
 footer {
-position:fixed;left:0px;right:0px;bottom:50px;
-font-size:25px;font-weight:bold;z-index:1;color:#FFE4B5;text-align:left;
+position:fixed;left:0px;right:0px;bottom:30px;
+font-size:22px;font-weight:bold;z-index:1;color:#FFE4B5;text-align:left;
 text-align:center;
 font-weight:bold;
 }
