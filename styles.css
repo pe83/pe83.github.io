@@ -1,10 +1,10 @@
 :root {
-  --color-cod-gray: #CD853F;
+  --color-bg: #1f1f2e; /* Deep sleek PlayStation blue-gray tone */
   --color-primary: #FFFACD;
 }
 
 body {
-  background-color: var(--color-cod-gray);
+  background-color: var(--color-bg);
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 20px;
@@ -21,75 +21,113 @@ body {
 h1#msgs {
   font-size: 25px;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
   margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 h2 {
   font-size: 25px;
   margin: auto;
-  color: #000000;
+  color: #d1d1d1;
   font-weight: normal;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-/* --- BACKGROUND TILES CONTAINER --- */
-.tiles {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  left: 50%;
+/* --- PLAYSTATION SYMBOLS BACKGROUND LAYER --- */
+.ps-background {
   position: fixed;
-  top: 50%;
-  transform: translateX(-50%) translateY(-50%) rotate(320deg);
-  gap: 1.5vh;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   z-index: 1;
   pointer-events: none;
 }
 
-/* --- LINE ANIMATIONS --- */
-.tiles__line {
-  display: flex;
-  width: max-content;
-  animation: runner 24s linear infinite;
-  will-change: transform;
+.ps-symbol {
+  position: absolute;
+  display: block;
+  bottom: -150px;
+  opacity: 0.18;
+  animation: floatUp 12s linear infinite;
 }
 
-.tiles__line:nth-child(1) { animation-duration: 22s; }
-.tiles__line:nth-child(2) { animation-duration: 28s; animation-direction: reverse; }
-.tiles__line:nth-child(3) { animation-duration: 18s; }
-.tiles__line:nth-child(4) { animation-duration: 25s; animation-direction: reverse; }
 
-/* --- UNIFORM TILE CARRIAGES --- */
-.tiles__line-img {
-  --tile-margin: 2vw;
-  flex: none;
-  height: 25vh;
-  width: 25vh;
-  margin: var(--tile-margin);
-  opacity: 0.85;
+/* --- SYMBOL SHAPES (all 52x52, same line thickness) --- */
+.ps-symbol {
+  position: absolute;
+  display: block;
+  bottom: -150px;
+  opacity: 0.18;
+  animation: floatUp 12s linear infinite;
+  box-sizing: border-box;
+  width: 52px;
+  height: 52px;
 }
 
-/* --- FIXED SHAPES & STABLE COLORS --- */
-.shape-square   { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
-.shape-circle   { clip-path: circle(50% at 50% 50%); }
-.shape-triangle { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-.shape-x        { clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%); }
+.ps-symbol.triangle {
+  background-color: #00B08E;
+  /* outer triangle fills the full 52x52 box, inner triangle gives a ~6px outline */
+  clip-path: polygon(
+    50% 0%, 100% 100%, 0% 100%, 50% 0%,
+    50% 25.8%, 18.6% 88.5%, 81.4% 88.5%, 50% 25.8%
+  );
+}
 
-.color-coral  { background-color: #FF4500; }
-.color-green  { background-color: #00FF66; }
-.color-blue   { background-color: #00E5FF; }
-.color-pink   { background-color: #FF007F; }
-.color-gold   { background-color: #FFD700; }
-.color-purple { background-color: #9D00FF; }
+.ps-symbol.circle {
+  border: 6px solid #ff3366;
+  border-radius: 50%;
+}
 
-/* --- SEAMLESS INFINITE MARQUEE RUNNER --- */
-@keyframes runner {
-  0% { 
-    transform: translate3d(0, 0, 0); 
+.ps-symbol.cross::before,
+.ps-symbol.cross::after {
+  content: '';
+  position: absolute;
+  top: 23px;          /* vertically centered in 52px box */
+  left: -10.5px;      /* centered: 26 - 73/2 */
+  width: 73px;        /* 52px * √2 = corner-to-corner of the box */
+  height: 6px;
+  background-color: #0070d1;
+}
+.ps-symbol.cross::before { transform: rotate(45deg); }
+.ps-symbol.cross::after  { transform: rotate(-45deg); }
+
+.ps-symbol.square {
+  border: 6px solid #FF69F8;
+}
+
+
+/* --- PRE-SCATTERED POSITIONS & NEGATIVE DELAYS (INSTANTLY ACTIVE) --- */
+.ps-symbol:nth-child(1)  { left: 4%;   animation-duration: 11s; animation-delay: -3s;   transform: scale(0.8); }
+.ps-symbol:nth-child(2)  { left: 12%;  animation-duration: 14s; animation-delay: -8s;   transform: scale(1.2); }
+.ps-symbol:nth-child(3)  { left: 22%;  animation-duration: 9s;  animation-delay: -1s;   transform: scale(0.9); }
+.ps-symbol:nth-child(4)  { left: 31%;  animation-duration: 16s; animation-delay: -5s;   transform: scale(1.4); }
+.ps-symbol:nth-child(5)  { left: 42%;  animation-duration: 10s; animation-delay: -10s;  transform: scale(0.7); }
+.ps-symbol:nth-child(6)  { left: 53%;  animation-duration: 13s; animation-delay: -2s;   transform: scale(1.1); }
+.ps-symbol:nth-child(7)  { left: 62%;  animation-duration: 12s; animation-delay: -7s;   transform: scale(1.0); }
+.ps-symbol:nth-child(8)  { left: 73%;  animation-duration: 15s; animation-delay: -4s;   transform: scale(1.3); }
+.ps-symbol:nth-child(9)  { left: 82%;  animation-duration: 10s; animation-delay: -9s;   transform: scale(0.8); }
+.ps-symbol:nth-child(10) { left: 91%;  animation-duration: 13s; animation-delay: -6s;   transform: scale(1.2); }
+.ps-symbol:nth-child(11) { left: 36%;  animation-duration: 15s; animation-delay: -11s;  transform: scale(0.9); }
+.ps-symbol:nth-child(12) { left: 67%;  animation-duration: 11s; animation-delay: -2.5s; transform: scale(1.1); }
+
+/* --- CONTINUOUS INFINITE FLOAT ANIMATION --- */
+@keyframes floatUp {
+  0% {
+    transform: translateY(10vh) rotate(0deg);
+    opacity: 0;
   }
-  100% { 
-    transform: translate3d(-33.333333%, 0, 0);
+  15% {
+    opacity: 0.18;
+  }
+  85% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
   }
 }
 
@@ -101,9 +139,9 @@ h2 {
 
 button {
   border: 2px solid #FFE4B5;
-  background: #CD853F;
+  background: #2a2a40;
   font-family: 'Roboto', sans-serif;
-  color: #000000;
+  color: #ffffff;
   width: 250px;
   height: 50px;
   font-size: 25px;
@@ -112,12 +150,13 @@ button {
   margin: 4px;
   transition: 0.3s;
   cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 button:hover {
-  border: 2px dotted #104F55;
-  background-color: rgba(255, 255, 255, 0.7);
-  color: #104F55;
+  border: 2px dotted #00d2ff;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #00d2ff;
   opacity: 1;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 210, 255, 0.3);
 }
