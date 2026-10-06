@@ -169,4 +169,5 @@ button:hover {
   height: 100vh;
   z-index: 2;
   pointer-events: none;
+  opacity: 0.7;
 }
